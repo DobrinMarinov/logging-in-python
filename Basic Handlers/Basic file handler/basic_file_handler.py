@@ -14,7 +14,7 @@ def get_monthly_payment(principal, years):
     logger.info('Calling mortgage calculator')
 
     if years > 50:
-        logger.warn('Term greater than 50 years')
+        logger.warning('Term greater than 50 years')
 
     mon_rate = get_current_rate(years)/1200
     payments = years * 12
@@ -29,6 +29,6 @@ if __name__ == '__main__':
     log_filename = '../../Sandbox/basic_file.log'
     logging.basicConfig(level=logging.DEBUG,
                         format='%(asctime)s %(levelname)s %(message)s',
-                        setup_file_handler_here)
+                        filename=log_filename)
     payment = get_monthly_payment(100000, 80)
     print('Monthly payment is %f' % payment)
